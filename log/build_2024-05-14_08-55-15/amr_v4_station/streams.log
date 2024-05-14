@@ -1,0 +1,37 @@
+[4.867s] Invoking command in '/home/kidd/agv_station/build/amr_v4_station': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kidd/agv_station/build/amr_v4_station/build --no-deps symlink_data
+[6.806s] running develop
+[6.808s] /home/kidd/.local/lib/python3.8/site-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[6.809s] !!
+[6.810s] 
+[6.810s]         ********************************************************************************
+[6.811s]         Please avoid running ``setup.py`` and ``easy_install``.
+[6.812s]         Instead, use pypa/build, pypa/installer or other
+[6.812s]         standards-based tools.
+[6.813s] 
+[6.814s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[6.814s]         ********************************************************************************
+[6.815s] 
+[6.815s] !!
+[6.816s]   easy_install.initialize_options(self)
+[7.988s] running egg_info
+[7.989s] creating amr_v4_station.egg-info
+[8.088s] writing amr_v4_station.egg-info/PKG-INFO
+[8.091s] writing dependency_links to amr_v4_station.egg-info/dependency_links.txt
+[8.092s] writing entry points to amr_v4_station.egg-info/entry_points.txt
+[8.092s] writing requirements to amr_v4_station.egg-info/requires.txt
+[8.093s] writing top-level names to amr_v4_station.egg-info/top_level.txt
+[8.101s] writing manifest file 'amr_v4_station.egg-info/SOURCES.txt'
+[8.296s] reading manifest file 'amr_v4_station.egg-info/SOURCES.txt'
+[8.300s] writing manifest file 'amr_v4_station.egg-info/SOURCES.txt'
+[8.678s] running build_ext
+[8.680s] Creating /home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr-v4-station.egg-link (link to .)
+[8.686s] Installing station script to /home/kidd/agv_station/install/amr_v4_station/lib/amr_v4_station
+[8.688s] 
+[8.689s] Installed /home/kidd/agv_station/build/amr_v4_station
+[8.690s] running symlink_data
+[8.691s] creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index
+[8.691s] creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index
+[8.692s] creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index/packages
+[8.692s] symbolically linking /home/kidd/agv_station/build/amr_v4_station/resource/amr_v4_station -> /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index/packages
+[8.693s] symbolically linking /home/kidd/agv_station/build/amr_v4_station/package.xml -> /home/kidd/agv_station/install/amr_v4_station/share/amr_v4_station
+[8.853s] Invoked command in '/home/kidd/agv_station/build/amr_v4_station' returned '0': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kidd/agv_station/build/amr_v4_station/build --no-deps symlink_data

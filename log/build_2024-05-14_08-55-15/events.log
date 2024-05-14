@@ -1,0 +1,130 @@
+[0.000000] (-) TimerEvent: {}
+[0.001788] (amr_v4_station) JobQueued: {'identifier': 'amr_v4_station', 'dependencies': OrderedDict()}
+[0.003104] (amr_v4_station) JobStarted: {'identifier': 'amr_v4_station'}
+[0.099541] (-) TimerEvent: {}
+[0.202775] (-) TimerEvent: {}
+[0.303807] (-) TimerEvent: {}
+[0.404948] (-) TimerEvent: {}
+[0.506008] (-) TimerEvent: {}
+[0.607228] (-) TimerEvent: {}
+[0.708624] (-) TimerEvent: {}
+[0.810058] (-) TimerEvent: {}
+[0.911450] (-) TimerEvent: {}
+[1.013778] (-) TimerEvent: {}
+[1.114821] (-) TimerEvent: {}
+[1.215926] (-) TimerEvent: {}
+[1.316974] (-) TimerEvent: {}
+[1.420876] (-) TimerEvent: {}
+[1.524194] (-) TimerEvent: {}
+[1.626521] (-) TimerEvent: {}
+[1.727481] (-) TimerEvent: {}
+[1.828699] (-) TimerEvent: {}
+[1.929869] (-) TimerEvent: {}
+[2.031255] (-) TimerEvent: {}
+[2.132258] (-) TimerEvent: {}
+[2.233411] (-) TimerEvent: {}
+[2.334531] (-) TimerEvent: {}
+[2.435631] (-) TimerEvent: {}
+[2.537836] (-) TimerEvent: {}
+[2.639018] (-) TimerEvent: {}
+[2.740105] (-) TimerEvent: {}
+[2.841133] (-) TimerEvent: {}
+[2.942219] (-) TimerEvent: {}
+[3.043313] (-) TimerEvent: {}
+[3.144457] (-) TimerEvent: {}
+[3.245652] (-) TimerEvent: {}
+[3.346700] (-) TimerEvent: {}
+[3.447799] (-) TimerEvent: {}
+[3.548921] (-) TimerEvent: {}
+[3.650040] (-) TimerEvent: {}
+[3.751339] (-) TimerEvent: {}
+[3.852528] (-) TimerEvent: {}
+[3.953926] (-) TimerEvent: {}
+[4.055072] (-) TimerEvent: {}
+[4.156192] (-) TimerEvent: {}
+[4.257459] (-) TimerEvent: {}
+[4.359874] (-) TimerEvent: {}
+[4.460951] (-) TimerEvent: {}
+[4.562120] (-) TimerEvent: {}
+[4.663219] (-) TimerEvent: {}
+[4.764651] (-) TimerEvent: {}
+[4.860860] (amr_v4_station) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/kidd/agv_station/build/amr_v4_station/build', '--no-deps', 'symlink_data'], 'cwd': '/home/kidd/agv_station/build/amr_v4_station', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kidd', 'SSH_AGENT_PID': '3340', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib:/home/kidd/agv_gui/install/amr_v4_msgs_srvs/lib:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/aarch64-linux-gnu:/opt/ros/galactic/lib', 'HOME': '/home/kidd', 'OLDPWD': '/home/kidd/agv_station/src', 'DESKTOP_SESSION': 'ubuntu', 'JETSON_L4T': '35.3.1', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'JETSON_MODEL': 'NVIDIA Jetson Xavier NX Developer Kit', 'MANAGERPID': '3232', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator2343a10e6c2480e111dd3e9e564eb7966', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3899', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/kidd/agv_station/install:/home/kidd/agv_gui/install', 'ROS_DISTRO': 'galactic', 'LOGNAME': 'kidd', 'JETSON_MODULE': 'NVIDIA Jetson Xavier NX (16GB ram)', 'JETSON_SERIAL_NUMBER': '1421122056927', 'JOURNAL_STREAM': '7:65111', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Jakku', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kidd', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '3', 'PATH': '/opt/ros/galactic/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/amr:@/tmp/.ICE-unix/3375,unix/amr:/tmp/.ICE-unix/3375', 'INVOCATION_ID': 'aca6f70b9ee546a5901c1f2e3af0730f', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1001', 'DISPLAY': ':2', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1001/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra194', 'SSH_AUTH_SOCK': '/run/user/1001/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kidd/agv_station/install/amr_v4_station:/home/kidd/agv_station/install/amr_v4_qt:/home/kidd/agv_station/install/amr_v4_msgs_srvs:/home/kidd/agv_gui/install/amr_v4_station:/home/kidd/agv_gui/install/amr_v4_qt:/opt/ros/galactic', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:ba0b7a3c-1546-4f7d-a4d4-05e9401ebe82', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1001/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'JETSON_CUDA_ARCH_BIN': '7.2', 'PWD': '/home/kidd/agv_station/build/amr_v4_station', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:/home/kidd/agv_station/install/amr_v4_msgs_srvs/local/lib/python3.10/dist-packages:/home/kidd/agv_gui/build/amr_v4_station:/home/kidd/agv_gui/install/amr_v4_station/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003', 'JETSON_JETPACK': '5.1.1', 'CMAKE_PREFIX_PATH': '/home/kidd/agv_station/install/amr_v4_qt:/home/kidd/agv_station/install/amr_v4_msgs_srvs:/home/kidd/agv_gui/install/amr_v4_qt:/home/kidd/agv_gui/install/amr_v4_msgs_srvs', 'JETSON_P_NUMBER': 'p3668-0003'}, 'shell': False}
+[4.873773] (-) TimerEvent: {}
+[4.982469] (-) TimerEvent: {}
+[5.084953] (-) TimerEvent: {}
+[5.186166] (-) TimerEvent: {}
+[5.287313] (-) TimerEvent: {}
+[5.388260] (-) TimerEvent: {}
+[5.489348] (-) TimerEvent: {}
+[5.590763] (-) TimerEvent: {}
+[5.692090] (-) TimerEvent: {}
+[5.793269] (-) TimerEvent: {}
+[5.894395] (-) TimerEvent: {}
+[5.995592] (-) TimerEvent: {}
+[6.096665] (-) TimerEvent: {}
+[6.197837] (-) TimerEvent: {}
+[6.298910] (-) TimerEvent: {}
+[6.400456] (-) TimerEvent: {}
+[6.501591] (-) TimerEvent: {}
+[6.602676] (-) TimerEvent: {}
+[6.703637] (-) TimerEvent: {}
+[6.804724] (-) TimerEvent: {}
+[6.807092] (amr_v4_station) StdoutLine: {'line': b'running develop\n'}
+[6.810427] (amr_v4_station) StderrLine: {'line': b'/home/kidd/.local/lib/python3.8/site-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[6.812600] (amr_v4_station) StderrLine: {'line': b'!!\n'}
+[6.813247] (amr_v4_station) StderrLine: {'line': b'\n'}
+[6.813777] (amr_v4_station) StderrLine: {'line': b'        ********************************************************************************\n'}
+[6.814441] (amr_v4_station) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[6.815046] (amr_v4_station) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[6.815651] (amr_v4_station) StderrLine: {'line': b'        standards-based tools.\n'}
+[6.816300] (amr_v4_station) StderrLine: {'line': b'\n'}
+[6.816943] (amr_v4_station) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[6.817647] (amr_v4_station) StderrLine: {'line': b'        ********************************************************************************\n'}
+[6.818211] (amr_v4_station) StderrLine: {'line': b'\n'}
+[6.818729] (amr_v4_station) StderrLine: {'line': b'!!\n'}
+[6.819288] (amr_v4_station) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[6.904988] (-) TimerEvent: {}
+[7.006175] (-) TimerEvent: {}
+[7.107202] (-) TimerEvent: {}
+[7.208269] (-) TimerEvent: {}
+[7.309498] (-) TimerEvent: {}
+[7.410814] (-) TimerEvent: {}
+[7.511987] (-) TimerEvent: {}
+[7.613030] (-) TimerEvent: {}
+[7.714173] (-) TimerEvent: {}
+[7.815224] (-) TimerEvent: {}
+[7.917510] (-) TimerEvent: {}
+[7.991138] (amr_v4_station) StdoutLine: {'line': b'running egg_info\n'}
+[7.992148] (amr_v4_station) StdoutLine: {'line': b'creating amr_v4_station.egg-info\n'}
+[8.017735] (-) TimerEvent: {}
+[8.090430] (amr_v4_station) StdoutLine: {'line': b'writing amr_v4_station.egg-info/PKG-INFO\n'}
+[8.093936] (amr_v4_station) StdoutLine: {'line': b'writing dependency_links to amr_v4_station.egg-info/dependency_links.txt\n'}
+[8.094965] (amr_v4_station) StdoutLine: {'line': b'writing entry points to amr_v4_station.egg-info/entry_points.txt\n'}
+[8.095812] (amr_v4_station) StdoutLine: {'line': b'writing requirements to amr_v4_station.egg-info/requires.txt\n'}
+[8.096495] (amr_v4_station) StdoutLine: {'line': b'writing top-level names to amr_v4_station.egg-info/top_level.txt\n'}
+[8.103797] (amr_v4_station) StdoutLine: {'line': b"writing manifest file 'amr_v4_station.egg-info/SOURCES.txt'\n"}
+[8.117892] (-) TimerEvent: {}
+[8.218794] (-) TimerEvent: {}
+[8.299250] (amr_v4_station) StdoutLine: {'line': b"reading manifest file 'amr_v4_station.egg-info/SOURCES.txt'\n"}
+[8.303839] (amr_v4_station) StdoutLine: {'line': b"writing manifest file 'amr_v4_station.egg-info/SOURCES.txt'\n"}
+[8.318978] (-) TimerEvent: {}
+[8.420289] (-) TimerEvent: {}
+[8.521372] (-) TimerEvent: {}
+[8.623911] (-) TimerEvent: {}
+[8.680499] (amr_v4_station) StdoutLine: {'line': b'running build_ext\n'}
+[8.682523] (amr_v4_station) StdoutLine: {'line': b'Creating /home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr-v4-station.egg-link (link to .)\n'}
+[8.688191] (amr_v4_station) StdoutLine: {'line': b'Installing station script to /home/kidd/agv_station/install/amr_v4_station/lib/amr_v4_station\n'}
+[8.691213] (amr_v4_station) StdoutLine: {'line': b'\n'}
+[8.692176] (amr_v4_station) StdoutLine: {'line': b'Installed /home/kidd/agv_station/build/amr_v4_station\n'}
+[8.693415] (amr_v4_station) StdoutLine: {'line': b'running symlink_data\n'}
+[8.694235] (amr_v4_station) StdoutLine: {'line': b'creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index\n'}
+[8.694717] (amr_v4_station) StdoutLine: {'line': b'creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index\n'}
+[8.695350] (amr_v4_station) StdoutLine: {'line': b'creating /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index/packages\n'}
+[8.695794] (amr_v4_station) StdoutLine: {'line': b'symbolically linking /home/kidd/agv_station/build/amr_v4_station/resource/amr_v4_station -> /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index/packages\n'}
+[8.696273] (amr_v4_station) StdoutLine: {'line': b'symbolically linking /home/kidd/agv_station/build/amr_v4_station/package.xml -> /home/kidd/agv_station/install/amr_v4_station/share/amr_v4_station\n'}
+[8.724189] (-) TimerEvent: {}
+[8.825415] (-) TimerEvent: {}
+[8.854305] (amr_v4_station) CommandEnded: {'returncode': 0}
+[8.926988] (-) TimerEvent: {}
+[8.950807] (amr_v4_station) JobEnded: {'identifier': 'amr_v4_station', 'rc': 0}
+[8.957671] (-) EventReactorShutdown: {}
