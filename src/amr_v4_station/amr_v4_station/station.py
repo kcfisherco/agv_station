@@ -11,20 +11,24 @@ class SensorPublisher(Node):
     def __init__(self):
         super().__init__("sensor")
         self.publisher = self.create_publisher(Sensor, "/sensor_status", 10)
-        self.timer = self.create_timer(1.0, self.test_on())
+        self.timer = self.create_timer(1.0, self.test_on)
+        # Delete in future
+        self.get_logger().info("Sensor publisher started")
 
     def test_on(self):
         message = Sensor()
-        message.status = True
+        message.status = False
         self.publisher.publish(message)
 
 class RelaySubscriber(Node):
     def __init__(self):
         super().__init__("relay")
         self.relay_subscriber = self.create_subscription(Sensor, "/sensor_status", self.detect_status, 10)
+        # Delete in future
+        self.get_logger().info("Relay has started")
 
     def detect_status(self, message):
-        self.get_logger().info(message.status)
+        self.get_logger().info(f"Status received: {message.status}")
 
     def receive_input(self, pin):
         prev_value = None
@@ -65,10 +69,12 @@ def main():
         sensor = SensorPublisher()
         relay = RelaySubscriber()
         executor = MultiThreadedExecutor()
-        executor.add_node(SensorPublisher)
-        executor.add_node(RelaySubscriber)
+        executor.add_node(sensor)
+        executor.add_node(relay)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
+
+        time.sleep(1000)
 
         # while rclpy.ok():
         #     relay.simulator(pin_output[0])
@@ -77,7 +83,7 @@ def main():
     except (KeyboardInterrupt,SystemError,SystemExit,rclpy.exceptions.ROSInterruptException):
         GPIO.cleanup()
         sensor.destroy_node()
-        relay.destoy_node()
+        relay.destroy_node()
         executor.shutdown()
         exit()
 
