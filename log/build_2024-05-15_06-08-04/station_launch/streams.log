@@ -1,0 +1,20 @@
+[2.061s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/station_launch -- -j6 -l6
+[2.369s] Invoked command in '/home/kidd/agv_station/build/station_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/station_launch -- -j6 -l6
+[2.671s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/station_launch
+[2.716s] -- Install configuration: ""
+[2.717s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/package_run_dependencies/station_launch
+[2.718s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/parent_prefix_path/station_launch
+[2.719s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.sh
+[2.719s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.dsv
+[2.720s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.sh
+[2.720s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.dsv
+[2.723s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.bash
+[2.725s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.sh
+[2.725s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.zsh
+[2.726s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.dsv
+[2.728s] -- Installing: /home/kidd/agv_station/install/station_launch/share/station_launch/package.dsv
+[2.729s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/packages/station_launch
+[2.729s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig.cmake
+[2.730s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig-version.cmake
+[2.730s] -- Up-to-date: /home/kidd/agv_station/install/station_launch/share/station_launch/package.xml
+[2.742s] Invoked command in '/home/kidd/agv_station/build/station_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/station_launch

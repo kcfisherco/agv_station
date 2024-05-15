@@ -1,0 +1,1 @@
+[1.867s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/station_launch -- -j6 -l6

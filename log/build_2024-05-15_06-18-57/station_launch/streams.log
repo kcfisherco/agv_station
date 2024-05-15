@@ -1,0 +1,35 @@
+[1.788s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake /home/kidd/agv_station/src/station_launch -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kidd/agv_station/install/station_launch
+[1.878s] -- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)
+[2.030s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.376s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.440s] -- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)
+[2.892s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.901s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.906s] -- Added test 'lint_cmake' to check CMake code style
+[2.908s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[2.916s] -- Added test 'xmllint' to check XML markup files
+[2.930s] -- Configuring done
+[2.952s] -- Generating done
+[2.961s] -- Build files have been written to: /home/kidd/agv_station/build/station_launch
+[2.978s] Invoked command in '/home/kidd/agv_station/build/station_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake /home/kidd/agv_station/src/station_launch -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kidd/agv_station/install/station_launch
+[3.006s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/station_launch -- -j6 -l6
+[3.301s] Invoked command in '/home/kidd/agv_station/build/station_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/station_launch -- -j6 -l6
+[3.543s] Invoking command in '/home/kidd/agv_station/build/station_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/station_launch
+[3.591s] -- Install configuration: ""
+[3.594s] -- Execute custom install script
+[3.597s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/package_run_dependencies/station_launch
+[3.658s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/parent_prefix_path/station_launch
+[3.727s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.sh
+[3.796s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.dsv
+[3.851s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.sh
+[3.915s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.dsv
+[3.970s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.bash
+[4.023s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.sh
+[4.081s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.zsh
+[4.142s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.dsv
+[4.195s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/package.dsv
+[4.255s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/packages/station_launch
+[4.349s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig.cmake
+[4.412s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig-version.cmake
+[4.445s] -- Symlinking: /home/kidd/agv_station/install/station_launch/share/station_launch/package.xml
+[4.526s] Invoked command in '/home/kidd/agv_station/build/station_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/station_launch

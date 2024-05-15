@@ -1,0 +1,4 @@
+source;share/amr_v4_msgs_srvs/environment/ament_prefix_path.sh
+source;share/amr_v4_msgs_srvs/environment/library_path.sh
+source;share/amr_v4_msgs_srvs/environment/path.sh
+source;share/amr_v4_msgs_srvs/environment/pythonpath.sh

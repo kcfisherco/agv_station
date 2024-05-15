@@ -1,0 +1,15 @@
+/home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/package_run_dependencies/station_launch
+/home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/parent_prefix_path/station_launch
+/home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.sh
+/home/kidd/agv_station/install/station_launch/share/station_launch/environment/ament_prefix_path.dsv
+/home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.sh
+/home/kidd/agv_station/install/station_launch/share/station_launch/environment/path.dsv
+/home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.bash
+/home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.sh
+/home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.zsh
+/home/kidd/agv_station/install/station_launch/share/station_launch/local_setup.dsv
+/home/kidd/agv_station/install/station_launch/share/station_launch/package.dsv
+/home/kidd/agv_station/install/station_launch/share/ament_index/resource_index/packages/station_launch
+/home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig.cmake
+/home/kidd/agv_station/install/station_launch/share/station_launch/cmake/station_launchConfig-version.cmake
+/home/kidd/agv_station/install/station_launch/share/station_launch/package.xml

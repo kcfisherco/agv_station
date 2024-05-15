@@ -1,0 +1,194 @@
+[0.210s] Invoking command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake /home/kidd/agv_station/src/amr_v4_msgs_srvs -DCMAKE_INSTALL_PREFIX=/home/kidd/agv_station/install/amr_v4_msgs_srvs
+[2.030s] -- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)
+[2.030s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.031s] -- Found rosidl_default_generators: 1.1.1 (/opt/ros/galactic/share/rosidl_default_generators/cmake)
+[2.031s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.032s] -- Found rosidl_adapter: 2.2.3 (/opt/ros/galactic/share/rosidl_adapter/cmake)
+[2.032s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[2.033s] -- Found FastRTPS: /opt/ros/galactic/include  
+[2.618s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.956s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[3.612s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/galactic/share/ament_cmake_ros/cmake)
+[4.177s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.229s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.396s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[4.408s] -- Found python_cmake_module: 0.8.1 (/opt/ros/galactic/share/python_cmake_module/cmake)
+[4.592s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[4.593s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.594s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[4.594s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so
+[4.736s] -- Found PythonExtra: .so  
+[6.404s] -- Configuring done
+[6.711s] -- Generating done
+[6.733s] -- Build files have been written to: /home/kidd/agv_station/build/amr_v4_msgs_srvs
+[6.783s] Invoked command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake /home/kidd/agv_station/src/amr_v4_msgs_srvs -DCMAKE_INSTALL_PREFIX=/home/kidd/agv_station/install/amr_v4_msgs_srvs
+[6.796s] Invoking command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/amr_v4_msgs_srvs -- -j6 -l6
+[7.038s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__cpp[0m
+[7.040s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.103s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[8.301s] [  6%] Built target amr_v4_msgs_srvs__cpp
+[8.349s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_generator_c[0m
+[8.366s] [  9%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[8.366s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[8.383s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[8.447s] [ 19%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__rosidl_generator_c.dir/rosidl_generator_c/amr_v4_msgs_srvs/msg/detail/sensor__functions.c.o[0m
+[8.889s] [ 22%] [32m[1mLinking C shared library libamr_v4_msgs_srvs__rosidl_generator_c.so[0m
+[9.253s] [ 22%] Built target amr_v4_msgs_srvs__rosidl_generator_c
+[9.363s] [ 25%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[9.399s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[9.610s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_cpp[0m
+[9.669s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp[0m
+[9.756s] [ 32%] [32mBuilding CXX object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/amr_v4_msgs_srvs/msg/sensor__type_support.cpp.o[0m
+[9.818s] [ 35%] [32mBuilding CXX object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/amr_v4_msgs_srvs/msg/detail/sensor__type_support.cpp.o[0m
+[9.917s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp[0m
+[10.129s] [ 38%] [32mBuilding CXX object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/amr_v4_msgs_srvs/msg/detail/dds_fastrtps/sensor__type_support.cpp.o[0m
+[10.653s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_introspection_c[0m
+[10.785s] [ 41%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/amr_v4_msgs_srvs/msg/detail/sensor__type_support.c.o[0m
+[10.839s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_c[0m
+[10.924s] [ 45%] [32mBuilding CXX object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_c.dir/rosidl_typesupport_c/amr_v4_msgs_srvs/msg/sensor__type_support.cpp.o[0m
+[11.084s] [ 48%] [32m[1mLinking C shared library libamr_v4_msgs_srvs__rosidl_typesupport_introspection_c.so[0m
+[11.205s] [ 51%] [32m[1mLinking CXX shared library libamr_v4_msgs_srvs__rosidl_typesupport_c.so[0m
+[11.498s] [ 51%] Built target amr_v4_msgs_srvs__rosidl_typesupport_introspection_c
+[11.569s] [ 51%] Built target amr_v4_msgs_srvs__rosidl_typesupport_c
+[11.761s] [ 54%] [32m[1mLinking CXX shared library libamr_v4_msgs_srvs__rosidl_typesupport_cpp.so[0m
+[12.026s] [ 58%] [32m[1mLinking CXX shared library libamr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp.so[0m
+[12.036s] [ 58%] Built target amr_v4_msgs_srvs__rosidl_typesupport_cpp
+[12.298s] [ 58%] Built target amr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp
+[13.252s] [ 61%] [32m[1mLinking CXX shared library libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp.so[0m
+[13.699s] [ 61%] Built target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp
+[13.757s] [ 64%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[14.817s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c[0m
+[14.903s] [ 67%] [32mBuilding CXX object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/amr_v4_msgs_srvs/msg/detail/sensor__type_support_c.cpp.o[0m
+[17.153s] [ 70%] [32m[1mLinking CXX shared library libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c.so[0m
+[17.574s] [ 70%] Built target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c
+[17.627s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs[0m
+[17.683s] [ 70%] Built target amr_v4_msgs_srvs
+[17.737s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__py[0m
+[17.799s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[19.771s] [ 74%] Built target amr_v4_msgs_srvs__py
+[19.826s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__python[0m
+[19.979s] [ 77%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__python.dir/rosidl_generator_py/amr_v4_msgs_srvs/msg/_sensor_s.c.o[0m
+[20.643s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/amr_v4_msgs_srvs/libamr_v4_msgs_srvs__python.so[0m
+[20.861s] [ 80%] Built target amr_v4_msgs_srvs__python
+[20.919s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_c__pyext[0m
+[20.920s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_introspection_c__pyext[0m
+[20.925s] [35m[1mScanning dependencies of target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c__pyext[0m
+[21.048s] [ 87%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/amr_v4_msgs_srvs/_amr_v4_msgs_srvs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[21.048s] [ 87%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/amr_v4_msgs_srvs/_amr_v4_msgs_srvs_s.ep.rosidl_typesupport_c.c.o[0m
+[21.065s] [ 90%] [32mBuilding C object CMakeFiles/amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/amr_v4_msgs_srvs/_amr_v4_msgs_srvs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[21.608s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so[0m
+[21.609s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so[0m
+[21.646s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so[0m
+[21.809s] [100%] Built target amr_v4_msgs_srvs__rosidl_typesupport_c__pyext
+[21.819s] [100%] Built target amr_v4_msgs_srvs__rosidl_typesupport_introspection_c__pyext
+[21.997s] [100%] Built target amr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c__pyext
+[22.073s] Invoked command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --build /home/kidd/agv_station/build/amr_v4_msgs_srvs -- -j6 -l6
+[22.384s] Invoking command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/amr_v4_msgs_srvs
+[22.434s] -- Install configuration: ""
+[22.436s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/ament_index/resource_index/rosidl_interfaces/amr_v4_msgs_srvs
+[22.438s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.439s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.439s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.440s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__functions.c
+[22.441s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__functions.h
+[22.442s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__struct.h
+[22.442s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__type_support.h
+[22.443s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/sensor.h
+[22.444s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/rosidl_generator_c__visibility_control.h
+[22.445s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/library_path.sh
+[22.446s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/library_path.dsv
+[22.448s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_generator_c.so
+[22.452s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_generator_c.so" to ""
+[22.453s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.453s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.454s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.454s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__rosidl_typesupport_fastrtps_c.h
+[22.455s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[22.456s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c.so
+[22.459s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_c.so" to ""
+[22.460s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.461s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.462s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.463s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__rosidl_typesupport_fastrtps_cpp.hpp
+[22.463s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/dds_fastrtps
+[22.464s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[22.464s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp.so
+[22.468s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[22.469s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.469s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.470s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.471s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__type_support.c
+[22.473s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__rosidl_typesupport_introspection_c.h
+[22.474s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[22.474s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_introspection_c.so
+[22.475s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_introspection_c.so" to ""
+[22.476s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_c.so
+[22.485s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_c.so" to ""
+[22.486s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.488s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.488s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.489s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__struct.hpp
+[22.489s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__traits.hpp
+[22.490s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__builder.hpp
+[22.491s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/sensor.hpp
+[22.492s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs
+[22.493s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg
+[22.493s] -- Up-to-date: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail
+[22.494s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__type_support.cpp
+[22.494s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/include/amr_v4_msgs_srvs/msg/detail/sensor__rosidl_typesupport_introspection_cpp.hpp
+[22.495s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp.so
+[22.495s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_introspection_cpp.so" to ""
+[22.496s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_cpp.so
+[22.497s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__rosidl_typesupport_cpp.so" to ""
+[22.498s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/pythonpath.sh
+[22.498s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/pythonpath.dsv
+[22.500s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/__init__.py
+[22.683s] Compiling '/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/__init__.py'...
+[22.705s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/msg
+[22.706s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/msg/_sensor.py
+[22.707s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/msg/_sensor_s.c
+[22.707s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/msg/__init__.py
+[22.709s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+[22.715s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""
+[22.717s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+[22.721s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""
+[22.722s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+[22.725s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/python3.8/site-packages/amr_v4_msgs_srvs/amr_v4_msgs_srvs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""
+[22.727s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__python.so
+[22.729s] -- Set runtime path of "/home/kidd/agv_station/install/amr_v4_msgs_srvs/lib/libamr_v4_msgs_srvs__python.so" to ""
+[22.730s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/msg/Sensor.idl
+[22.732s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/msg/Sensor.msg
+[22.733s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/ament_index/resource_index/package_run_dependencies/amr_v4_msgs_srvs
+[22.735s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/ament_index/resource_index/parent_prefix_path/amr_v4_msgs_srvs
+[22.736s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/ament_prefix_path.sh
+[22.736s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/ament_prefix_path.dsv
+[22.738s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/path.sh
+[22.739s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/environment/path.dsv
+[22.740s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/local_setup.bash
+[22.742s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/local_setup.sh
+[22.744s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/local_setup.zsh
+[22.745s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/local_setup.dsv
+[22.747s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/package.dsv
+[22.748s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/ament_index/resource_index/packages/amr_v4_msgs_srvs
+[22.749s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_generator_cExport.cmake
+[22.750s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_generator_cExport-noconfig.cmake
+[22.751s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_introspection_cExport.cmake
+[22.753s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[22.754s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_cExport.cmake
+[22.755s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_cExport-noconfig.cmake
+[22.758s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_generator_cppExport.cmake
+[22.759s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_introspection_cppExport.cmake
+[22.760s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[22.761s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_cppExport.cmake
+[22.764s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvs__rosidl_typesupport_cppExport-noconfig.cmake
+[22.764s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/rosidl_cmake-extras.cmake
+[22.766s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/ament_cmake_export_dependencies-extras.cmake
+[22.767s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/ament_cmake_export_libraries-extras.cmake
+[22.769s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/ament_cmake_export_targets-extras.cmake
+[22.769s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/ament_cmake_export_include_directories-extras.cmake
+[22.770s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[22.771s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[22.772s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvsConfig.cmake
+[22.774s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/cmake/amr_v4_msgs_srvsConfig-version.cmake
+[22.774s] -- Installing: /home/kidd/agv_station/install/amr_v4_msgs_srvs/share/amr_v4_msgs_srvs/package.xml
+[22.794s] Invoked command in '/home/kidd/agv_station/build/amr_v4_msgs_srvs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kidd/agv_station/install/amr_v4_station:/opt/ros/galactic /usr/bin/cmake --install /home/kidd/agv_station/build/amr_v4_msgs_srvs

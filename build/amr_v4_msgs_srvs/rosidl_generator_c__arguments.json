@@ -1,0 +1,24 @@
+{
+  "package_name": "amr_v4_msgs_srvs",
+  "output_dir": "/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_generator_c/amr_v4_msgs_srvs",
+  "template_dir": "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource",
+  "idl_tuples": [
+    "/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_adapter/amr_v4_msgs_srvs:msg/Sensor.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../../../lib/python3.8/site-packages/rosidl_generator_c/__init__.py",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/action__type_support.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/idl.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/idl__functions.c.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/idl__functions.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/idl__struct.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/idl__type_support.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/msg__functions.c.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/msg__functions.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
+    "/opt/ros/galactic/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
+    "/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_adapter/amr_v4_msgs_srvs/msg/Sensor.idl"
+  ]
+}

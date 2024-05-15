@@ -1,0 +1,17 @@
+CMake Error at CMakeLists.txt:32:
+  Parse error.  Expected a command name, got unterminated string with text
+  "msg/Sensor.msg
+
+  )
+
+  
+
+  ament_export_dependencies(rosidl_default_runtime)
+
+  
+
+  ament_package()
+
+  ".
+
+

@@ -31,5 +31,32 @@ Kidd Chang - kidd.chang@fisherco.com
 - Sensor
 - Relay
 
+## Publishers
+- Sensor
+
+## Subscribers
+- Relay
+
+## Psudocode
+```
+class sensor node
+    init
+        publish
+
+    detect if sensor relay on or off function()
+        listen if sensor on
+            algorithm to recieve gpio pin powered high 
+        otherwise
+            algorithm to recieve gpio pin powered low
+
+class relay node
+    init
+        subscribe
+
+    activate flag relay function(parameter: pin)
+        algorithm to turn gpio pin high
+
+```
+
 ## Conditional Flow diagram
 ![Flow diagram of the overall project](flowdiagram.drawio.svg)

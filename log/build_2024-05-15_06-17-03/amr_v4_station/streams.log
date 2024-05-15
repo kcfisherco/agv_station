@@ -1,0 +1,16 @@
+[4.308s] Invoking command in '/home/kidd/agv_station/src/amr_v4_station': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/amr_v4_station build --build-base /home/kidd/agv_station/build/amr_v4_station/build install --record /home/kidd/agv_station/build/amr_v4_station/install.log --single-version-externally-managed install_data
+[5.856s] running egg_info
+[5.882s] writing manifest file '../../build/amr_v4_station/amr_v4_station.egg-info/SOURCES.txt'
+[5.883s] running build
+[5.883s] running build_py
+[5.884s] copying amr_v4_station/station.py -> /home/kidd/agv_station/build/amr_v4_station/build/lib/amr_v4_station
+[5.884s] running install
+[5.888s] running install_lib
+[5.897s] byte-compiling /home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr_v4_station/station.py to station.cpython-38.pyc
+[5.902s] running install_data
+[5.902s] running install_egg_info
+[5.910s] removing '/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr_v4_station-0.0.0-py3.8.egg-info' (and everything under it)
+[5.912s] Copying ../../build/amr_v4_station/amr_v4_station.egg-info to /home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr_v4_station-0.0.0-py3.8.egg-info
+[5.919s] running install_scripts
+[6.017s] writing list of installed files to '/home/kidd/agv_station/build/amr_v4_station/install.log'
+[6.124s] Invoked command in '/home/kidd/agv_station/src/amr_v4_station' returned '0': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/amr_v4_station build --build-base /home/kidd/agv_station/build/amr_v4_station/build install --record /home/kidd/agv_station/build/amr_v4_station/install.log --single-version-externally-managed install_data

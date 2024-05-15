@@ -1,0 +1,9 @@
+[4.402s] Invoking command in '/home/kidd/agv_station/build/amr_v4_station': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kidd/agv_station/build/amr_v4_station/build --no-deps symlink_data --force
+[6.420s] running develop
+[7.406s] running egg_info
+[7.432s] writing manifest file 'amr_v4_station.egg-info/SOURCES.txt'
+[7.715s] running build_ext
+[7.721s] running symlink_data
+[7.722s] symbolically linking /home/kidd/agv_station/build/amr_v4_station/resource/amr_v4_station -> /home/kidd/agv_station/install/amr_v4_station/share/ament_index/resource_index/packages
+[7.723s] symbolically linking /home/kidd/agv_station/build/amr_v4_station/package.xml -> /home/kidd/agv_station/install/amr_v4_station/share/amr_v4_station
+[7.876s] Invoked command in '/home/kidd/agv_station/build/amr_v4_station' returned '0': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kidd/agv_station/build/amr_v4_station/build --no-deps symlink_data --force

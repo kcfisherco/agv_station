@@ -1,0 +1,14 @@
+[4.299s] Invoking command in '/home/kidd/agv_station/src/amr_v4_station': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/amr_v4_station build --build-base /home/kidd/agv_station/build/amr_v4_station/build install --record /home/kidd/agv_station/build/amr_v4_station/install.log --single-version-externally-managed install_data
+[5.874s] running egg_info
+[5.903s] writing manifest file '../../build/amr_v4_station/amr_v4_station.egg-info/SOURCES.txt'
+[5.904s] running build
+[5.906s] running build_py
+[5.906s] running install
+[5.917s] running install_lib
+[5.922s] running install_data
+[5.923s] running install_egg_info
+[5.927s] removing '/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr_v4_station-0.0.0-py3.8.egg-info' (and everything under it)
+[5.931s] Copying ../../build/amr_v4_station/amr_v4_station.egg-info to /home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages/amr_v4_station-0.0.0-py3.8.egg-info
+[5.936s] running install_scripts
+[6.046s] writing list of installed files to '/home/kidd/agv_station/build/amr_v4_station/install.log'
+[6.175s] Invoked command in '/home/kidd/agv_station/src/amr_v4_station' returned '0': PYTHONPATH=/home/kidd/agv_station/build/amr_v4_station/prefix_override:/home/kidd/agv_station/install/amr_v4_station/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/amr_v4_station build --build-base /home/kidd/agv_station/build/amr_v4_station/build install --record /home/kidd/agv_station/build/amr_v4_station/install.log --single-version-externally-managed install_data

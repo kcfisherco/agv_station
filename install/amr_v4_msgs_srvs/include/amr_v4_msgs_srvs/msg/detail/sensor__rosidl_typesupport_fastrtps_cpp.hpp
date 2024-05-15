@@ -1,0 +1,1 @@
+/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_typesupport_fastrtps_cpp/amr_v4_msgs_srvs/msg/detail/sensor__rosidl_typesupport_fastrtps_cpp.hpp

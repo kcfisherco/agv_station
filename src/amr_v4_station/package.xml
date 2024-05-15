@@ -4,7 +4,7 @@
   <name>amr_v4_station</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="kidd@todo.todo">kidd</maintainer>
+  <maintainer email="kidd.chang@fisherco.com">kidd chang</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
