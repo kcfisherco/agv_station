@@ -5,57 +5,80 @@ import Jetson.GPIO as GPIO
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from threading import Thread
-from amr_v4_msgs_srvs.msg import Sensor
 
-class SensorPublisher(Node):
-    def __init__(self):
-        super().__init__("sensor")
-        self.publisher = self.create_publisher(Sensor, "/sensor_status", 10)
-        self.timer = self.create_timer(1.0, self.test_on)
-        # Delete in future
-        self.get_logger().info("Sensor publisher started")
+from std_msgs.msg import Bool
 
-    def test_on(self):
-        message = Sensor()
-        message.status = False
-        self.publisher.publish(message)
+class StackLightPublisher(Node):
+    def __init__(self, database):
+        super().__init__("light")
+        self.db = database
+        self.publisher = self.create_publisher(Bool, f"/{self.db.station_id}/cart_ready", 10)
+        self.timer = self.create_timer(1.0, self.callback)
+        self.get_logger().info("Stack Light Publisher has started")
 
-class RelaySubscriber(Node):
-    def __init__(self):
-        super().__init__("relay")
-        self.relay_subscriber = self.create_subscription(Sensor, "/sensor_status", self.detect_status, 10)
-        # Delete in future
-        self.get_logger().info("Relay has started")
+    def callback(self):
+        message = Bool()
+        message.data = False
+        if (self.light_color()):
+            message.data = True
+            self.publisher.publish(message)
+        else:
+            self.publisher.publish(message)
 
-    def detect_status(self, message):
-        self.get_logger().info(f"Status received: {message.status}")
+    def light_color(self):
+        if (not self.db.production_running):
+            GPIO.output(pin_output[1], GPIO.LOW)
+            GPIO.output(pin_output[2], GPIO.LOW)
+            GPIO.output(pin_output[0], GPIO.HIGH)
+            self.get_logger().info("Publishing color red")
+            return False
+        else:
+            if (self.get_pin(pin_input[0]) and self.get_pin(pin_input[1])):
+                GPIO.output(pin_output[0], GPIO.LOW)
+                GPIO.output(pin_output[1], GPIO.LOW)
+                GPIO.output(pin_output[2], GPIO.HIGH)
+                self.get_logger().info("Publishing color Blue")
+                return True
+            elif (self.get_pin(pin_input[0]) ^ self.get_pin(pin_input[1])):
+                self.get_logger().info("Publishing color flashing yellow")
+                return False
+            else:
+                GPIO.output(pin_output[0], GPIO.LOW)
+                GPIO.output(pin_output[2], GPIO.LOW)
+                GPIO.output(pin_output[1], GPIO.HIGH)
+                self.get_logger().info("Publishing color Green")
+                return False
 
-    def receive_input(self, pin):
+    def get_pin(self, pin):
         prev_value = None
         value = GPIO.input(pin)
-        if value != prev_value:
+        if value != None:
             if value == GPIO.HIGH:
                 value_str = "HIGH"
             else:
                 value_str = "LOW"
-            print("Value read from pin {} : {}".format(pin,
-                                                        value_str))
-            prev_value = value
+            return value
 
-    def simulator(self, pin):
-        GPIO.output(pin, GPIO.HIGH)
-        print("Outputting state: {} to pin: {}".format(GPIO.input(pin), pin))
-        # print("Input Pin 29: ", GPIO.input(29))
-        # GPIO.setup(29, GPIO.IN)
-        # GPIO.setup(pin, GPIO.IN)
-        # GPIO.wait_for_edge(pin, GPIO.RISING)
-        # flag_relay_receiver()
-        # GPIO.setup(29, GPIO.OUT)
-        # GPIO.output(pin, GPIO.LOW)
+def update_database():
+    pass
+
+def read_database():
+    class db:
+        station_id = "station209B"
+        production_running = True
+    return db()
+
+def simulate(pins):
+        GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.output(pins[0], GPIO.HIGH)
+        GPIO.output(pins[1], GPIO.LOW)
+        GPIO.setup(pins, GPIO.IN)
+        print("Outputting state: {} to pin: {}".format(GPIO.input(pins[0]), pins[0]))
+        print("Outputting state: {} to pin: {}".format(GPIO.input(pins[1]), pins[1]))
 
 """Global Settings"""
-pin_input = 7
-pin_output = [29, 33, 40]
+pin_input = [11, 13]
+pin_output = [29, 33, 40] # 29 = Red; 33 = Green; 40 = Blue
 
 def main():
 
@@ -66,28 +89,28 @@ def main():
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(pin_input, GPIO.IN)
         GPIO.setup(pin_output, GPIO.OUT, initial=GPIO.LOW)
-        sensor = SensorPublisher()
-        relay = RelaySubscriber()
+
+        simulate(pin_input)
+
+        light = StackLightPublisher(read_database())
         executor = MultiThreadedExecutor()
-        executor.add_node(sensor)
-        executor.add_node(relay)
+        executor.add_node(light)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
 
         time.sleep(1000)
 
         # while rclpy.ok():
-        #     relay.simulator(pin_output[0])
+        #     light.simulator(pin_output[0])
         #     sys.exit()
 
     except (KeyboardInterrupt,SystemError,SystemExit,rclpy.exceptions.ROSInterruptException):
-        GPIO.cleanup()
-        sensor.destroy_node()
-        relay.destroy_node()
+        light.destroy_node()
         executor.shutdown()
         exit()
 
     finally:
+        GPIO.cleanup()
         rclpy.shutdown()
         print("shutting down :)")
 
