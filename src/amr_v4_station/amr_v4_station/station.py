@@ -9,7 +9,7 @@ from threading import Thread
 from std_msgs.msg import Bool
 
 class StationPublisher(Node):
-    def __init__(self, database):
+    def __init__(self, database): # Used dummy database as a parameter to read data
         super().__init__("station")
         self.db = database
         self.publisher = self.create_publisher(Bool, f"/{self.db.station_id}/cart_ready", 10)
@@ -27,9 +27,9 @@ class StationPublisher(Node):
 
     def light_color(self):
         if (not self.db.production_running):
+            GPIO.output(pin_output[0], GPIO.HIGH)
             GPIO.output(pin_output[1], GPIO.LOW)
             GPIO.output(pin_output[2], GPIO.LOW)
-            GPIO.output(pin_output[0], GPIO.HIGH)
             self.get_logger().info("Publishing color red")
             return False
         elif (self.get_gpio_pin(pin_input[0]) and self.get_gpio_pin(pin_input[1])):
@@ -43,8 +43,8 @@ class StationPublisher(Node):
             return False
         else:
             GPIO.output(pin_output[0], GPIO.LOW)
-            GPIO.output(pin_output[2], GPIO.LOW)
             GPIO.output(pin_output[1], GPIO.HIGH)
+            GPIO.output(pin_output[2], GPIO.LOW)
             self.get_logger().info("Publishing color Green")
             return False
 
@@ -58,15 +58,19 @@ class StationPublisher(Node):
                 value_str = "LOW"
             return value
 
+# TODO: Need access to database in order to implement full functionality
 def update_database():
     pass
 
-def read_database():
+def read_database(): # Dummy database
     class db:
         station_id = "station209B"
         production_running = True
+        clear = False
     return db()
 
+# NOTE: at this point in time I don't have the relay to simulate 
+# input pins being powered high So I used this function to simulate it
 def simulate_sensors(pins):
         GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
         GPIO.output(pins[0], GPIO.HIGH)
@@ -89,16 +93,17 @@ def main():
         GPIO.setup(pin_input, GPIO.IN)
         GPIO.setup(pin_output, GPIO.OUT, initial=GPIO.LOW)
 
-        simulate_sensors(pin_input)
-
         station = StationPublisher(read_database())
         executor = MultiThreadedExecutor()
         executor.add_node(station)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
 
-        time.sleep(1000)
+        # Temporary code to test functionality
+        simulate_sensors(pin_input)
+        time.sleep(1000) 
 
+        # TODO: Implement station functionality in loop
         # while rclpy.ok():
         #     
         #     sys.exit()
