@@ -32,9 +32,8 @@ Non-functional requirements
 
 ## Prerequisites
 Software Preqrequisites
-- Jetson GPIO library
 - ROS2 Humble (Galactic if using Jetson Xavier)
-- Database
+- Jetson GPIO library (https://github.com/NVIDIA/jetson-gpio)
 
 Hardware Prerequisites
 - Jetson (Xavier or Nano) w/ 3-Ch relay expansion board mounted
@@ -99,8 +98,6 @@ Conditions that must be met:
 
 Output: \
 Flag Color = <span style="color: Blue;">Blue</span>
-
-<hr>
 
 ## Stack Light Conditional Flow diagram
 <img src="flowdiagram.drawio.svg" alt="Flow diagram of the overall project" style="width:750px;"/>
