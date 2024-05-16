@@ -3,3 +3,4 @@
     - Especially flashing red
     - Ensure I got all the colors with the right condition 
 - Set up database while waiting for relay
+- Discuss station 209b issue (agv's 17/18)

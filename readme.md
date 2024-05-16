@@ -23,8 +23,8 @@ Functional requirements
 - Listen for state of sensors
 - Configure GPIO pins to read relays and power on/off relays 
     - Change flag colors through relays
-- Publish messages to robot when cart is in place
-- Request data and update database
+- Publish messages to robot so that it knows when to pickup cart or not to
+- Read data and update database
 
 Non-functional requirements
 - Ensure real time responsiveness
@@ -73,7 +73,6 @@ Flag Color = <span style="color: Green;">Green</span>
 Conditions that must be met:
 - Production is running
 - Only one sensor is active
-- Robot is clear
 
 Output: \
 Flag Color = <span style="color: Yellow;">Flashing Yellow</span>

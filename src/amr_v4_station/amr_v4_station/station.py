@@ -19,36 +19,37 @@ class StationPublisher(Node):
     def callback(self):
         message = Bool()
         message.data = False
-        if (self.light_color()):
+        light_color = self.light_controller()
+        if (light_color == "blue"):
             message.data = True
             self.publisher.publish(message)
         else:
             self.publisher.publish(message)
 
-    def light_color(self):
+    def light_controller(self):
         if (not self.db.production_running):
             GPIO.output(pin_output[0], GPIO.HIGH)
             GPIO.output(pin_output[1], GPIO.LOW)
             GPIO.output(pin_output[2], GPIO.LOW)
             self.get_logger().info("Publishing color red")
-            return False
-        elif (self.get_gpio_pin(pin_input[0]) and self.get_gpio_pin(pin_input[1])):
+            return "red"
+        elif (self.get_pin(pin_input[0]) and self.get_pin(pin_input[1])):
             GPIO.output(pin_output[0], GPIO.LOW)
             GPIO.output(pin_output[1], GPIO.LOW)
             GPIO.output(pin_output[2], GPIO.HIGH)
             self.get_logger().info("Publishing color Blue")
-            return True
-        elif (self.get_gpio_pin(pin_input[0]) ^ self.get_gpio_pin(pin_input[1])):
+            return "blue"
+        elif (self.get_pin(pin_input[0]) ^ self.get_pin(pin_input[1])):
             self.get_logger().info("Publishing color flashing yellow")
-            return False
+            return "flashing_yellow"
         else:
             GPIO.output(pin_output[0], GPIO.LOW)
             GPIO.output(pin_output[1], GPIO.HIGH)
             GPIO.output(pin_output[2], GPIO.LOW)
             self.get_logger().info("Publishing color Green")
-            return False
+            return "green"
 
-    def get_gpio_pin(self, pin):
+    def get_pin(self, pin):
         prev_value = None
         value = GPIO.input(pin)
         if value != None:
@@ -71,13 +72,15 @@ def read_database(): # Dummy database
 
 # NOTE: at this point in time I don't have the relay to simulate 
 # input pins being powered high So I used this function to simulate it
-def simulate_sensors(pins):
+def simulate_test_case(pins, pin_one_power, pin_two_power):
+        dummy_db = read_database()
         GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
-        GPIO.output(pins[0], GPIO.HIGH)
-        GPIO.output(pins[1], GPIO.LOW)
+        GPIO.output(pins[0], pin_one_power)
+        GPIO.output(pins[1], pin_two_power)
         GPIO.setup(pins, GPIO.IN)
         print("Outputting state: {} to pin: {}".format(GPIO.input(pins[0]), pins[0]))
         print("Outputting state: {} to pin: {}".format(GPIO.input(pins[1]), pins[1]))
+        print("Is production running: {}".format(dummy_db.production_running if "yes" else "no"))
 
 """Global Settings"""
 pin_input = [11, 13]
@@ -100,7 +103,7 @@ def main():
         executor_try.start()
 
         # Temporary code to test functionality
-        simulate_sensors(pin_input)
+        simulate_test_case(pin_input, GPIO.HIGH, GPIO.HIGH)
         time.sleep(1000) 
 
         # TODO: Implement station functionality in loop
