@@ -8,13 +8,13 @@ from threading import Thread
 
 from std_msgs.msg import Bool
 
-class StackLightPublisher(Node):
+class StationPublisher(Node):
     def __init__(self, database):
-        super().__init__("light")
+        super().__init__("station")
         self.db = database
         self.publisher = self.create_publisher(Bool, f"/{self.db.station_id}/cart_ready", 10)
         self.timer = self.create_timer(1.0, self.callback)
-        self.get_logger().info("Stack Light Publisher has started")
+        self.get_logger().info("Station Publisher has started")
 
     def callback(self):
         message = Bool()
@@ -32,24 +32,23 @@ class StackLightPublisher(Node):
             GPIO.output(pin_output[0], GPIO.HIGH)
             self.get_logger().info("Publishing color red")
             return False
+        elif (self.get_gpio_pin(pin_input[0]) and self.get_gpio_pin(pin_input[1])):
+            GPIO.output(pin_output[0], GPIO.LOW)
+            GPIO.output(pin_output[1], GPIO.LOW)
+            GPIO.output(pin_output[2], GPIO.HIGH)
+            self.get_logger().info("Publishing color Blue")
+            return True
+        elif (self.get_gpio_pin(pin_input[0]) ^ self.get_gpio_pin(pin_input[1])):
+            self.get_logger().info("Publishing color flashing yellow")
+            return False
         else:
-            if (self.get_pin(pin_input[0]) and self.get_pin(pin_input[1])):
-                GPIO.output(pin_output[0], GPIO.LOW)
-                GPIO.output(pin_output[1], GPIO.LOW)
-                GPIO.output(pin_output[2], GPIO.HIGH)
-                self.get_logger().info("Publishing color Blue")
-                return True
-            elif (self.get_pin(pin_input[0]) ^ self.get_pin(pin_input[1])):
-                self.get_logger().info("Publishing color flashing yellow")
-                return False
-            else:
-                GPIO.output(pin_output[0], GPIO.LOW)
-                GPIO.output(pin_output[2], GPIO.LOW)
-                GPIO.output(pin_output[1], GPIO.HIGH)
-                self.get_logger().info("Publishing color Green")
-                return False
+            GPIO.output(pin_output[0], GPIO.LOW)
+            GPIO.output(pin_output[2], GPIO.LOW)
+            GPIO.output(pin_output[1], GPIO.HIGH)
+            self.get_logger().info("Publishing color Green")
+            return False
 
-    def get_pin(self, pin):
+    def get_gpio_pin(self, pin):
         prev_value = None
         value = GPIO.input(pin)
         if value != None:
@@ -68,7 +67,7 @@ def read_database():
         production_running = True
     return db()
 
-def simulate(pins):
+def simulate_sensors(pins):
         GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
         GPIO.output(pins[0], GPIO.HIGH)
         GPIO.output(pins[1], GPIO.LOW)
@@ -90,22 +89,22 @@ def main():
         GPIO.setup(pin_input, GPIO.IN)
         GPIO.setup(pin_output, GPIO.OUT, initial=GPIO.LOW)
 
-        simulate(pin_input)
+        simulate_sensors(pin_input)
 
-        light = StackLightPublisher(read_database())
+        station = StationPublisher(read_database())
         executor = MultiThreadedExecutor()
-        executor.add_node(light)
+        executor.add_node(station)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
 
         time.sleep(1000)
 
         # while rclpy.ok():
-        #     light.simulator(pin_output[0])
+        #     
         #     sys.exit()
 
     except (KeyboardInterrupt,SystemError,SystemExit,rclpy.exceptions.ROSInterruptException):
-        light.destroy_node()
+        station.destroy_node()
         executor.shutdown()
         exit()
 
