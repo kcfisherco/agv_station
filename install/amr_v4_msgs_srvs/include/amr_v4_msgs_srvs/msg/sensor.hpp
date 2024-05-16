@@ -1,1 +1,0 @@
-/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_generator_cpp/amr_v4_msgs_srvs/msg/sensor.hpp

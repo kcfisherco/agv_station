@@ -1,1 +1,0 @@
-/home/kidd/agv_station/build/amr_v4_msgs_srvs/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake

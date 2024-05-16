@@ -1,1 +1,0 @@
-/home/kidd/agv_station/src/amr_v4_msgs_srvs/msg/Sensor.msg

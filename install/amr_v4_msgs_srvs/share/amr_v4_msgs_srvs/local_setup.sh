@@ -1,1 +1,0 @@
-/home/kidd/agv_station/build/amr_v4_msgs_srvs/ament_cmake_environment_hooks/local_setup.sh

@@ -1,3 +1,0 @@
-[console_scripts]
-station = amr_v4_station.station:main
-

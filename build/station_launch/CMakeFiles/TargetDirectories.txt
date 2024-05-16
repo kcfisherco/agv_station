@@ -1,9 +1,0 @@
-/home/kidd/agv_station/build/station_launch/CMakeFiles/install/strip.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/install/local.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/install.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/list_install_components.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/rebuild_cache.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/edit_cache.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/test.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/station_launch_uninstall.dir
-/home/kidd/agv_station/build/station_launch/CMakeFiles/uninstall.dir
