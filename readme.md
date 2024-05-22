@@ -49,87 +49,131 @@ Parameters
 - Production running?
 - Did robot clear cart?
 
-## Stack Light Color Conditions
+## Variable Conditions
+### Station Code:
+#### input:
+- is sensor on/off
+#### Output:
+- Set flag color
+
+<hr>
+
+### Database:
+#### Send data
+- is cart in place
+#### Receive data
+- station name
+- is production running
+- is robot in motion?
+
+<hr>
+
+### Timer
+- 5 seconds
+
+## Code Conditions:
+**Note:** All bulleted conditions must be met in order to get outputs
+
 ### Condition 1:
-Conditions that must be met:
+#### Conditions:
 - Production is not running
 
-Output: \
-Flag Color = <span style="color: Yellow;">Yellow</span>
+#### Output: 
+- Flag Color = <span style="color: Yellow;">Yellow</span>
+- Cart in place = <span style="color: Red;">False</span>
 
 <hr>
 
 ### Condition 2:
-Conditions that must be met:
+#### Conditions:
 - Production is running
-- No sensors are active
+- Sensors are not active/Cart not in place
 
-Output: \
-Flag Color = <span style="color: Green;">Green</span>
+#### Output:
+- Flag Color = <span style="color: Green;">Green</span>
+- Cart in place = <span style="color: Red;">False</span>
 
 <hr>
 
 ### Condition 3:
-Conditions that must be met:
+#### Conditions:
 - Production is running
-- Only one sensor is active
+- Sensors are active/Cart in place
 
-Output: \
-Flag Color = <span style="color: Yellow;">Flashing Yellow</span>
+#### Output:
+- Flag Color = <span style="color: Blue;">Blue</span>
+- Cart in place = <span style="color: Green;">True</span> after 5 seconds
 
 <hr>
 
 ### Condition 4:
-Conditions that must be met:
+#### Conditions:
 - Production is running
-- One or no sensors are active
-- Robot is not clear
+- Robot is in motion
+- Sensors are not active/Cart not in place
 
-Output: \
-Flag Color = <span style="color: Red;">Flashing Red</span>
+#### Output:
+- Flag Color = <span style="color: Red;">Flashing Red</span> 
+- Cart in place = <span style="color: Red;">False</span>
+
+#### Test Case:
+- What if robot moves cart while robot is in motion?
+- What if operator moves cart while robot is in motion?
+    - **Known issue; We will keep watch**
 
 <hr>
 
 ### Condition 5:
-Conditions that must be met:
+#### Conditions:
 - Production is running
-- All sensors are active
+- Only one sensor works
 
-Output: \
-Flag Color = <span style="color: Blue;">Blue</span>
+#### Output:
+- Flag color = Red
+
+Test Case:
+- What if one sensor is broken
 
 ## Stack Light Conditional Flow diagram
-<img src="flowdiagram.drawio.svg" alt="Flow diagram of the overall project" style="width:750px;"/>
+<img src="flowdiagram.svg" alt="Flow diagram of the overall project" style="width:750px;"/>
 
 ## Station Pseudocode
 ```
 
-class stack light publisher node
+class station publisher node
     init self
         create node name
         create publisher
         call publisher function
 
-    function grab cart()
-        if light color is xyz
-            send message to grab cart
-        otherwise 
-            pass
-
-function set light color()
-    if production is running
-        power light yellow
-    otherwise
-        if lights are both on
-            power light blue
-        else if only one light is on
-            power light yellow
+    function callback
+        cart ready = false
+        if light controller function returns blue
+            publish cart ready true
         otherwise
-            power light green
+            publish cart ready false
 
-function power light(color)
-    some gpio algorithms to power light...
+    function light controller()
+        if production is running
+            make color red
+            return red
+        if sensor 1 & 2 is active
+            make color blue
+            return blue
+        if sensor 1 or 2 is active
+            make color flashing yellow
+            return yellow
+        otherwise
+            make color green
+            return green
 
+    function get pin status of sensors
+        algorithm to get pins
+
+function get database
+    connect to database
+
+function update databse
 
 function main
     try
@@ -143,5 +187,5 @@ call main
 ```
 
 # Credit
-## Contact & Author
+## Creator & Author
 Kidd Chang - kidd.chang@fisherco.com
