@@ -14,18 +14,33 @@ class StationPublisher(Node):
         super().__init__("station")
         self.publisher = self.create_publisher(Station, f"/station_{station_name}/cart_ready", 10)
         self.timer = self.create_timer(1.0, self.callback)
-        self.docking_status = False
+        self.cart_status = False
 
     def callback(self):
         message = Station()
-        if (self.docking_status == True):
-            message.docking_in_action  = True
+        if (self.cart_status == True):
+            message.cart_in_place = True
         else:
-            message.docking_in_action = False
+            message.cart_in_place = False
         self.publisher.publish(message)
 
-def update_database():
-    pass
+def update_database(station_number, station):
+    cnxn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER=fisher-agc.database.windows.net;DATABASE=Fisher_AGC;UID=fisher_agc;PWD=tTp##L86?qM!4iG7')
+    cursor = cnxn.cursor()
+    try:
+        update_station = cursor.execute("""
+                                        update Station
+                                        set cart_in_place = ?
+                                        where station_name = ?
+                                        """, station.cart_status, station_number)
+        cnxn.commit()
+        cnxn.close()
+        return
+    except Exception as e:
+        print("Error: ", e)
+        cnxn.rollback()
+        cnxn.close()
+        return
 
 def read_database(station_number):
     global production
@@ -41,25 +56,33 @@ def read_database(station_number):
 def light_controller(station):
         if (not production):
             GPIO.output(pin_output[0], GPIO.HIGH)
-            GPIO.output(pin_output[1], GPIO.LOW)
+            GPIO.output(pin_output[1], GPIO.HIGH)
             GPIO.output(pin_output[2], GPIO.LOW)
             print("Set light color yellow")
-            station.docking_status = False
+            station.cart_status = False
         elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
             GPIO.output(pin_output[0], GPIO.LOW)
             GPIO.output(pin_output[1], GPIO.LOW)
             GPIO.output(pin_output[2], GPIO.HIGH)
             print("Set light color Blue")
-            station.docking_status = True
+            station.cart_status = True
         elif (GPIO.input(pin_input[0]) ^ GPIO.input(pin_input[1])):
+            prev_inputs = pin_input
+            for _ in range(4):
+                GPIO.output(pin_output[0], GPIO.HIGH)
+                time.sleep(0.5)
+                GPIO.output(pin_output[0], GPIO.LOW)
+                time.sleep(0.5)
+                if GPIO.input(pin_input[0]) != prev_inputs[0] or GPIO.input(pin_input[1]) != prev_inputs[1]:
+                    break
             print("Set light color flashing red")
-            station.docking_status = False
+            station.cart_status = False
         else:
             GPIO.output(pin_output[0], GPIO.LOW)
             GPIO.output(pin_output[1], GPIO.HIGH)
             GPIO.output(pin_output[2], GPIO.LOW)
             print("Set light color Green")
-            station.docking_status = False
+            station.cart_status = False
 
 # Temporary Function
 # NOTE: At this point in time I'm unable to test with sensors
@@ -73,7 +96,7 @@ def simulate_sensors(input_pins, pin_one_power, pin_two_power):
 station_name = (os.getenv('STATION_ID','station-x')).split('-')[1]
 print("Starting Program for station: %s" % station_name)
 pin_input = [11, 13]      # 11 = Sensor 1, 13 = Sensor 2
-pin_output = [40, 38, 37] # 40 = CH1, 38 = CH2, 37 = CH3
+pin_output = [40, 38, 37] # 40 = CH1/Red, 38 = CH2/Green, 37 = CH3/Blue
 
 def main():
     rclpy.init(args=None)
@@ -93,6 +116,7 @@ def main():
                 production, docking = read_database(station_name)
                 simulate_sensors(pin_input, GPIO.LOW, GPIO.HIGH) # Change test parameters here
                 light_controller(station)
+                update_database(station_name, station)
             else:
                 logging.info("The Hostname of Station is not set, aborting program and set STATION_ID = station-x in 'sudo gedit ~/.bashrc' GOODBYE !")
                 time.sleep(5)
