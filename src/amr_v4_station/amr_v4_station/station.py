@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import time, os, pyodbc, rclpy, logging, sys
-from typing import Counter
 import Jetson.GPIO as GPIO
 
 from rclpy.node import Node
@@ -24,7 +23,58 @@ class StationPublisher(Node):
             message.cart_in_place = False
         self.publisher.publish(message)
 
-def update_database(station_number, station):
+class stack_light:
+    def __init__(self, station_publisher):
+        self.station = station_publisher
+
+    def light_controller(self):
+            if (not production):
+                self.change_color(GPIO.HIGH, GPIO.HIGH, GPIO.LOW)
+                self.station.cart_status = False
+                print("color: Yellow")
+
+            elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
+                self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
+                self.station.cart_status = True
+                print("color: Blue")
+
+            elif (GPIO.input(pin_input[0]) ^ GPIO.input(pin_input[1])):
+                self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                self.station.cart_status = False
+                print("color: Red")
+                
+            elif (docking and not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
+                self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                self.station.cart_status = False
+                # Flashing Red
+
+            elif (not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
+                self.change_color(GPIO.LOW, GPIO.HIGH, GPIO.LOW)
+                self.station.cart_status = False
+                print("color: Green")
+
+            else:
+                self.station.cart_status = False
+                logging.warning("Hmm... there was an unexpected condition:")
+                logging.warning(f"Production running? {production}")
+                logging.warning(f"Input pin {pin_input[0]}: {GPIO.input(pin_input[0])}")
+                logging.warning(f"Input pin {pin_input[1]}: {GPIO.input(pin_input[1])}")
+                logging.warning(f"is robot docking? {docking}")
+
+    def change_color(self, red_power, green_power, blue_power):
+        GPIO.output(pin_output[0], red_power)
+        GPIO.output(pin_output[1], green_power)
+        GPIO.output(pin_output[2], blue_power)
+
+    def flash_light(self, r, g, b):
+        self.change_color(r, g, b)
+        print("color: Red")
+        time.sleep(2)
+        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.LOW)
+        print("color: OFF")
+        time.sleep(1.5)
+            
+def update_database(station_number, station_publisher):
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER=fisher-agc.database.windows.net;DATABASE=Fisher_AGC;UID=fisher_agc;PWD=tTp##L86?qM!4iG7')
     cursor = cnxn.cursor()
     try:
@@ -32,7 +82,7 @@ def update_database(station_number, station):
                                         update Station
                                         set cart_in_place = ?
                                         where station_name = ?
-                                        """, station.cart_status, station_number)
+                                        """, station_publisher.cart_status, station_number)
         cnxn.commit()
         cnxn.close()
         return
@@ -53,79 +103,52 @@ def read_database(station_number):
     cnxn.close()
     return production, docking
 
-def light_controller(station):
-        if (not production):
-            GPIO.output(pin_output[0], GPIO.HIGH)
-            GPIO.output(pin_output[1], GPIO.HIGH)
-            GPIO.output(pin_output[2], GPIO.LOW)
-            print("Set light color yellow")
-            station.cart_status = False
-        elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
-            GPIO.output(pin_output[0], GPIO.LOW)
-            GPIO.output(pin_output[1], GPIO.LOW)
-            GPIO.output(pin_output[2], GPIO.HIGH)
-            print("Set light color Blue")
-            station.cart_status = True
-        elif (GPIO.input(pin_input[0]) ^ GPIO.input(pin_input[1])):
-            prev_inputs = pin_input
-            for _ in range(4):
-                GPIO.output(pin_output[0], GPIO.HIGH)
-                time.sleep(0.5)
-                GPIO.output(pin_output[0], GPIO.LOW)
-                time.sleep(0.5)
-                if GPIO.input(pin_input[0]) != prev_inputs[0] or GPIO.input(pin_input[1]) != prev_inputs[1]:
-                    break
-            print("Set light color flashing red")
-            station.cart_status = False
-        else:
-            GPIO.output(pin_output[0], GPIO.LOW)
-            GPIO.output(pin_output[1], GPIO.HIGH)
-            GPIO.output(pin_output[2], GPIO.LOW)
-            print("Set light color Green")
-            station.cart_status = False
-
-# Temporary Function
-# NOTE: At this point in time I'm unable to test with sensors
-def simulate_sensors(input_pins, pin_one_power, pin_two_power):
-        GPIO.setup(input_pins, GPIO.OUT, initial=GPIO.LOW)
-        GPIO.output(input_pins[0], pin_one_power)
-        GPIO.output(input_pins[1], pin_two_power)
-        GPIO.setup(input_pins, GPIO.IN)
+# TEMPORARY
+# NOTE: Virtual test with sensors
+def simulate_sensors(p1_power, p2_power):
+        GPIO.setup(pin_input, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.output(pin_input[0], p1_power)
+        GPIO.output(pin_input[1], p2_power)
+        GPIO.setup(pin_input, GPIO.IN)
+        print("Sensor Pins:")
+        print(f"pin {pin_input[0]}: {p1_power}")
+        print(f"pin {pin_input[1]}: {p2_power}")
 
 """Global Settings"""
 station_name = (os.getenv('STATION_ID','station-x')).split('-')[1]
 print("Starting Program for station: %s" % station_name)
 pin_input = [11, 13]      # 11 = Sensor 1, 13 = Sensor 2
-pin_output = [40, 38, 37] # 40 = CH1/Red, 38 = CH2/Green, 37 = CH3/Blue
+pin_output = [40, 38, 37] # 40 = CH1/Red : Power, 38 = CH2/Green : Power, 37 = CH3/Blue : Power
 
 def main():
     rclpy.init(args=None)
 
     try:
-
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(pin_input, GPIO.IN)
         GPIO.setup(pin_output, GPIO.OUT, initial=GPIO.LOW)
-        station = StationPublisher()
+        simulate_sensors(GPIO.LOW, GPIO.LOW) # TEMPORARY: Change test parameters here
+        station_publisher = StationPublisher()
+        light = stack_light(station_publisher)
         executor = MultiThreadedExecutor()
-        executor.add_node(station)
+        executor.add_node(station_publisher)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
         while rclpy.ok():
             if (station_name != None):
-                production, docking = read_database(station_name)
-                simulate_sensors(pin_input, GPIO.LOW, GPIO.HIGH) # Change test parameters here
-                light_controller(station)
-                update_database(station_name, station)
+                read_database(station_name)
+                light.light_controller()
+                update_database(station_name, station_publisher)
             else:
                 logging.info("The Hostname of Station is not set, aborting program and set STATION_ID = station-x in 'sudo gedit ~/.bashrc' GOODBYE !")
                 time.sleep(5)
                 sys.exit()
 
     except (KeyboardInterrupt,SystemError,SystemExit,rclpy.exceptions.ROSInterruptException):
-        station.destroy_node()
+        station_publisher.destroy_node()
         executor.shutdown()
         exit()
+
     finally:
         GPIO.cleanup()
         rclpy.shutdown()
