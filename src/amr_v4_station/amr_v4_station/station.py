@@ -28,38 +28,40 @@ class stack_light:
         self.station = station_publisher
 
     def light_controller(self):
-            if (not production):
-                self.change_color(GPIO.HIGH, GPIO.HIGH, GPIO.LOW)
-                self.station.cart_status = False
-                print("color: Yellow")
+            if (production):
+                while (not docking):
+                    if (not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
+                        self.change_color(GPIO.LOW, GPIO.HIGH, GPIO.LOW)
+                        self.station.cart_status = False
+                        print("color: Green") # Simulate
 
-            elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
-                self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
-                self.station.cart_status = True
-                print("color: Blue")
+                    elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
+                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
+                        self.station.cart_status = True
+                        print("color: Blue") # Simulate
 
-            elif (GPIO.input(pin_input[0]) ^ GPIO.input(pin_input[1])):
-                self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
-                self.station.cart_status = False
-                print("color: Red")
-                
-            elif (docking and not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
-                self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
-                self.station.cart_status = False
-                # Flashing Red
+                    else:
+                        self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                        self.station.cart_status = False
+                        print("color: Red") # Simulate
+                    
+                    break
 
-            elif (not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
-                self.change_color(GPIO.LOW, GPIO.HIGH, GPIO.LOW)
-                self.station.cart_status = False
-                print("color: Green")
-
+                while (docking):
+                    if (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
+                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
+                        self.station.cart_status = True
+                        print("color: Blue") # Simulate
+                        
+                    else:
+                        self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                        self.station.cart_status = False
+                        # Flashing red light # Simulate
+                    
+                    break
             else:
-                self.station.cart_status = False
-                logging.warning("Hmm... there was an unexpected condition:")
-                logging.warning(f"Production running? {production}")
-                logging.warning(f"Input pin {pin_input[0]}: {GPIO.input(pin_input[0])}")
-                logging.warning(f"Input pin {pin_input[1]}: {GPIO.input(pin_input[1])}")
-                logging.warning(f"is robot docking? {docking}")
+                self.change_color(GPIO.HIGH, GPIO.HIGH, GPIO.LOW)
+                print("color: Yellow") # Simulate
 
     def change_color(self, red_power, green_power, blue_power):
         GPIO.output(pin_output[0], red_power)
@@ -68,11 +70,11 @@ class stack_light:
 
     def flash_light(self, r, g, b):
         self.change_color(r, g, b)
-        print("color: Red")
+        print("color: Red") # Simulate
         time.sleep(2)
         self.change_color(GPIO.LOW, GPIO.LOW, GPIO.LOW)
-        print("color: OFF")
-        time.sleep(1.5)
+        print("color: OFF") # Simulate
+        time.sleep(2)
             
 def update_database(station_number, station_publisher):
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER=fisher-agc.database.windows.net;DATABASE=Fisher_AGC;UID=fisher_agc;PWD=tTp##L86?qM!4iG7')
@@ -104,7 +106,7 @@ def read_database(station_number):
     return production, docking
 
 # TEMPORARY
-# NOTE: Virtual test with sensors
+# CLI test with sensors
 def simulate_sensors(p1_power, p2_power):
         GPIO.setup(pin_input, GPIO.OUT, initial=GPIO.LOW)
         GPIO.output(pin_input[0], p1_power)
@@ -114,11 +116,27 @@ def simulate_sensors(p1_power, p2_power):
         print(f"pin {pin_input[0]}: {p1_power}")
         print(f"pin {pin_input[1]}: {p2_power}")
 
+def simulate_change_sensors():
+    sensor_one = input("Enter sensor 1 input (HIGH/LOW): ").lower()
+    sensor_two = input("Enter sensor 2 input (HIGH/LOW): ").lower()
+   
+    if (sensor_one == "high"):
+        sensor_one = GPIO.HIGH
+    else:
+        sensor_one = GPIO.LOW
+
+    if (sensor_two == "high"):
+        sensor_two = GPIO.HIGH
+    else:
+        sensor_two = GPIO.LOW
+
+    simulate_sensors(sensor_one, sensor_two)
+
 """Global Settings"""
 station_name = (os.getenv('STATION_ID','station-x')).split('-')[1]
 print("Starting Program for station: %s" % station_name)
 pin_input = [11, 13]      # 11 = Sensor 1, 13 = Sensor 2
-pin_output = [40, 38, 37] # 40 = CH1/Red : Power, 38 = CH2/Green : Power, 37 = CH3/Blue : Power
+pin_output = [40, 38, 37] # 40 = CH1/Red, 38 = CH2/Green, 37 = CH3/Blue
 
 def main():
     rclpy.init(args=None)
@@ -127,7 +145,7 @@ def main():
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(pin_input, GPIO.IN)
         GPIO.setup(pin_output, GPIO.OUT, initial=GPIO.LOW)
-        simulate_sensors(GPIO.LOW, GPIO.LOW) # TEMPORARY: Change test parameters here
+        simulate_sensors(GPIO.LOW, GPIO.LOW) # TEMPORARY: Change initial test parameters here
         station_publisher = StationPublisher()
         light = stack_light(station_publisher)
         executor = MultiThreadedExecutor()
@@ -136,11 +154,13 @@ def main():
         executor_try.start()
         while rclpy.ok():
             if (station_name != None):
-                read_database(station_name)
-                light.light_controller()
-                update_database(station_name, station_publisher)
+                for _ in range(2): # TEMPORARY simulate
+                    read_database(station_name)
+                    light.light_controller()
+                    update_database(station_name, station_publisher)
+                simulate_change_sensors() # TEMPORARY simulate
             else:
-                logging.info("The Hostname of Station is not set, aborting program and set STATION_ID = station-x in 'sudo gedit ~/.bashrc' GOODBYE !")
+                logging.warning("The Hostname of Station is not set, aborting program and set STATION_ID = station-x in 'sudo gedit ~/.bashrc' GOODBYE !")
                 time.sleep(5)
                 sys.exit()
 
