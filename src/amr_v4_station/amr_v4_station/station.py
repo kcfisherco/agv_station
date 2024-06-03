@@ -26,41 +26,48 @@ class StationPublisher(Node):
 class stack_light:
     def __init__(self, station_publisher):
         self.station = station_publisher
+        self.switch = False
 
     def light_controller(self):
             if (production):
                 while (not docking):
                     if (not GPIO.input(pin_input[0]) and not GPIO.input(pin_input[1])):
-                        self.change_color(GPIO.LOW, GPIO.HIGH, GPIO.LOW)
                         self.station.cart_status = False
+                        self.change_color(GPIO.LOW, GPIO.HIGH, GPIO.LOW)
+                        self.switch = False
                         print("color: Green") # Simulate
 
                     elif (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
-                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
                         self.station.cart_status = True
+                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
+                        self.switch = False
                         print("color: Blue") # Simulate
 
                     else:
-                        self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
                         self.station.cart_status = False
+                        self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                        self.switch = False
                         print("color: Red") # Simulate
-                    
+
                     break
 
                 while (docking):
                     if (GPIO.input(pin_input[0]) and GPIO.input(pin_input[1])):
-                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
                         self.station.cart_status = True
+                        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.HIGH)
+                        self.switch = False
                         print("color: Blue") # Simulate
                         
                     else:
-                        self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
                         self.station.cart_status = False
+                        self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
                         # Flashing red light # Simulate
                     
                     break
             else:
+                self.station.cart_status = False
                 self.change_color(GPIO.HIGH, GPIO.HIGH, GPIO.LOW)
+                self.switch = False
                 print("color: Yellow") # Simulate
 
     def change_color(self, red_power, green_power, blue_power):
@@ -69,13 +76,14 @@ class stack_light:
         GPIO.output(pin_output[2], blue_power)
 
     def flash_light(self, r, g, b):
-        self.change_color(r, g, b)
-        print("color: Red") # Simulate
-        time.sleep(2)
-        self.change_color(GPIO.LOW, GPIO.LOW, GPIO.LOW)
-        print("color: OFF") # Simulate
-        time.sleep(2)
-            
+        self.switch = not self.switch
+        if (self.switch):
+            self.change_color(r, g, b) 
+            print("color: Red") # Simulate  
+        else: 
+            self.change_color(GPIO.LOW, GPIO.LOW, GPIO.LOW)
+            print("OFF") # Simulate            
+
 def update_database(station_number, station_publisher):
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER=fisher-agc.database.windows.net;DATABASE=Fisher_AGC;UID=fisher_agc;PWD=tTp##L86?qM!4iG7')
     cursor = cnxn.cursor()
@@ -87,12 +95,11 @@ def update_database(station_number, station_publisher):
                                         """, station_publisher.cart_status, station_number)
         cnxn.commit()
         cnxn.close()
-        return
     except Exception as e:
         print("Error: ", e)
         cnxn.rollback()
         cnxn.close()
-        return
+    return
 
 def read_database(station_number):
     global production
@@ -100,9 +107,12 @@ def read_database(station_number):
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER=fisher-agc.database.windows.net;DATABASE=Fisher_AGC;UID=fisher_agc;PWD=tTp##L86?qM!4iG7')
     cursor = cnxn.cursor()
 
-    production = cursor.execute("select production_enabled from Station where station_name=?", station_number).fetchval() 
-    docking = cursor.execute("select docking_in_action from Station where station_name=?", station_number).fetchval()
-    cnxn.close()
+    try:
+        production = cursor.execute("select production_enabled from Station where station_name=?", station_number).fetchval() 
+        docking = cursor.execute("select docking_in_action from Station where station_name=?", station_number).fetchval()
+        cnxn.close()
+    except Exception as e:
+        print("Error: ", e)
     return production, docking
 
 # TEMPORARY
@@ -117,15 +127,15 @@ def simulate_sensors(p1_power, p2_power):
         print(f"pin {pin_input[1]}: {p2_power}")
 
 def simulate_change_sensors():
-    sensor_one = input("Enter sensor 1 input (HIGH/LOW): ").lower()
-    sensor_two = input("Enter sensor 2 input (HIGH/LOW): ").lower()
+    sensor_one = input("Enter sensor 1 input (1/0): ")
+    sensor_two = input("Enter sensor 2 input (1/0): ")
    
-    if (sensor_one == "high"):
+    if (sensor_one == '1'):
         sensor_one = GPIO.HIGH
     else:
         sensor_one = GPIO.LOW
 
-    if (sensor_two == "high"):
+    if (sensor_two == '1'):
         sensor_two = GPIO.HIGH
     else:
         sensor_two = GPIO.LOW
@@ -152,9 +162,10 @@ def main():
         executor.add_node(station_publisher)
         executor_try = Thread(target=executor.spin, daemon=True)
         executor_try.start()
+
         while rclpy.ok():
             if (station_name != None):
-                for _ in range(2): # TEMPORARY simulate
+                for _ in range(3): # TEMPORARY simulate
                     read_database(station_name)
                     light.light_controller()
                     update_database(station_name, station_publisher)

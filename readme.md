@@ -47,8 +47,9 @@ Non-functional requirements
 ## Prerequisites
 Software 
 - Python 3.8+
-- ROS2 Humble
+- ROS2 Humble (or Galactic)
 - Microsoft SQL Server (v.19.3)
+- Ubuntu 22.04.4 (20.04.6 if using ROS2 Galactic)
 
 Hardware 
 - Jetson Nano [40-Pin Datasheet](https://jetsonhacks.com/nvidia-jetson-nano-j41-header-pinout/)
@@ -68,7 +69,7 @@ Libraries
 
 1. Set up ROS2 environment through terminal
 ```
-source /opt/ros/galactic/setup.bash
+source /opt/ros/<ROS-dist>/setup.bash
 source ~/agv_station/install/setup.bash
 ```
 2. Set up local environment station variable 
@@ -94,7 +95,7 @@ sudo su
 
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 
-curl https://packages.microsoft.com/config_ubuntu/$(lsb_release - rs)prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list 
 
 sudo apt-get update
 
@@ -102,7 +103,7 @@ sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
 
 sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18
 
-echo 'export PATH="$PATH:/opt/mssql-tools18/bin" >> ~/.bashrcsource ~/.bashrc
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrcsource ~/.bashrc
 ```
 
 # Architecture
