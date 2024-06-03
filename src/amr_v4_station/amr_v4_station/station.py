@@ -45,9 +45,8 @@ class stack_light:
 
                     else:
                         self.station.cart_status = False
-                        self.change_color(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
-                        self.switch = False
-                        print("color: Red") # Simulate
+                        self.flash_light(GPIO.HIGH, GPIO.LOW, GPIO.LOW)
+                        # Flashing red light # Simulate
 
                     break
 

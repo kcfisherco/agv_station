@@ -84,6 +84,11 @@ Add this line inside of the .bashrc, but replace < number > with the actual stat
 export STATION_ID="station-<number>"
 ```
 
+check if station environment variable exists
+```
+printenv | grep STATION
+``` 
+
 3. Build the ROS2 Files
 ```
 USER:~/agv_station$ colcon build
@@ -194,9 +199,10 @@ Nodes
 #### Conditions:
 - Production is running
 - Only one sensor works
+- Robot is not in motion
 
 #### Output:
-- Stack Light color = <span style="color: Red;">Red</span>
+- Stack Light color = <span style="color: Red;">Flashing Red</span>
 
 Test Case:
 - One sensor broke
@@ -230,7 +236,6 @@ This was because, what if one sensor was broken, but the other was working
 
 ### Solution
 I made the stack light flashing yellow when it detects at least one of the sensors are active
-
 
 # Licensing & Credit
 ## Licensing
